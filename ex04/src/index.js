@@ -1,26 +1,27 @@
-// Only change code below this line
-function sumFibonacci(num){
-    var firsttwo = [0, 1];
-    var sumoffibo = 1;
-    var counter = itterateupfibo (counter)
+function sumFibonacci(num) {
 
-                    function itterateupfibo(counter) {
-                        return firsttwo[firsttwo.length - 2] +
-                                firsttwo[firsttwo.length - 1]
-                    }
-                    while (counter <= num) {
-                        firsttwo.push(counter);
-                        if (counter % 2 != 0) { sumoffibo += counter;}
-                        counter = itterateupfibo(counter)
-                    }
+    var prevNum = 0;
+    var currNum = 1;
+    var result = 0;
 
-                    return sumoffibo;
+    if (num === 1) {
+        return num;
+    }
+
+    while (currNum <= num) {
+        if (currNum % 2 !== 0) {
+            result += currNum;
+        }
+        currNum += prevNum;
+        prevNum = currNum - prevNum;
+    }
+    return result;
 }
-// Only change code above this line
 
-console.log(sumFibonacci(1)); // Change this line
-console.log(sumFibonacci(10)); // Change this line
-console.log(sumFibonacci(20)); // Change this line
-console.log(sumFibonacci(4)); // Change this line
-console.log(sumFibonacci(-5)); // Change this line
+console.log(sumFibonacci(1));
+console.log(sumFibonacci(10));
+console.log(sumFibonacci(20));
+console.log(sumFibonacci(4));
+console.log(sumFibonacci(-5));
+
 module.exports = sumFibonacci;
